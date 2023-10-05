@@ -3,6 +3,8 @@ package Ventanas;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -14,7 +16,7 @@ public class Main extends JFrame {
 		ventanaPrincipal.setVisible(true);
 		ventanaPrincipal.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		ventanaPrincipal.setSize(800, 600);
-		ventanaPrincipal.setTitle("ZOOyarzabal");
+		ventanaPrincipal.setTitle("ZooYarzabal");
 
 	}
 	
@@ -28,9 +30,35 @@ public class Main extends JFrame {
 		panelBotones.setLayout(new FlowLayout());
 		// Aquí creamos el botón de trabajador y usuario
 		JButton botonTrabajador = new JButton("Soy trabajador");
+		
+		//ActionListener para abrir ventana de trabajador
+		botonTrabajador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaTrabajador ventanaTrabajador = new VentanaTrabajador();
+				ventanaTrabajador.setVisible(false);
+				ventanaTrabajador.setTitle("Gestion de Zoologico");
+				ventanaTrabajador.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				ventanaTrabajador.setSize(800, 600);
+				ventanaTrabajador.setVisible(true);
+			}
+		});
 		panelBotones.add(botonTrabajador);
+		
+		
 		JButton botonVisitante = new JButton("Soy visitante");
+		//ActionListener para abrir ventana de visitante
+		botonTrabajador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaVisitante ventanaVisitante = new VentanaVisitante();
+				ventanaVisitante.setVisible(false);
+				ventanaVisitante.setTitle("Bienvenido a ZooYarzabal");
+				ventanaVisitante.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				ventanaVisitante.setSize(800, 600);
+				ventanaVisitante.setVisible(true);
+			}
+		});
 		panelBotones.add(botonVisitante);
+		
 		add(panelBotones, BorderLayout.SOUTH);
 	}
 
