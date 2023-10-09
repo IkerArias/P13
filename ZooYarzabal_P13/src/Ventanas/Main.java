@@ -10,6 +10,8 @@ import javax.swing.*;
 
 public class Main extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		// Propiedades principales de la ventana principal
 		Main ventanaPrincipal = new Main();
@@ -35,10 +37,6 @@ public class Main extends JFrame {
 		botonTrabajador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaTrabajador ventanaTrabajador = new VentanaTrabajador();
-				ventanaTrabajador.setVisible(false);
-				ventanaTrabajador.setTitle("Gestion de Zoologico");
-				ventanaTrabajador.setDefaultCloseOperation(EXIT_ON_CLOSE);
-				ventanaTrabajador.setSize(800, 600);
 				ventanaTrabajador.setVisible(true);
 			}
 		});
@@ -50,10 +48,6 @@ public class Main extends JFrame {
 		botonTrabajador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaVisitante ventanaVisitante = new VentanaVisitante();
-				ventanaVisitante.setVisible(false);
-				ventanaVisitante.setTitle("Bienvenido a ZooYarzabal");
-				ventanaVisitante.setDefaultCloseOperation(EXIT_ON_CLOSE);
-				ventanaVisitante.setSize(800, 600);
 				ventanaVisitante.setVisible(true);
 			}
 		});

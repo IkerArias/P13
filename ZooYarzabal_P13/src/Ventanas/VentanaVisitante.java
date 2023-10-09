@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 
 public class VentanaVisitante extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
+
 	public VentanaVisitante() {
 		
 		JPanel panelBotones = new JPanel();
