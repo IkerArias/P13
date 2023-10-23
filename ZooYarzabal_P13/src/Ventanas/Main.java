@@ -10,6 +10,11 @@ import javax.swing.*;
 
 public class Main extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
+	private static JFrame ventanaTrabajador, ventanaVisitante;
+	
+
 	public static void main(String[] args) {
 		// Propiedades principales de la ventana principal
 		Main ventanaPrincipal = new Main();
@@ -28,18 +33,17 @@ public class Main extends JFrame {
 		
 		JPanel panelBotones = new JPanel();
 		panelBotones.setLayout(new FlowLayout());
+		
 		// Aquí creamos el botón de trabajador y usuario
 		JButton botonTrabajador = new JButton("Soy trabajador");
 		
 		//ActionListener para abrir ventana de trabajador
 		botonTrabajador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaTrabajador ventanaTrabajador = new VentanaTrabajador();
-				ventanaTrabajador.setVisible(false);
-				ventanaTrabajador.setTitle("Gestion de Zoologico");
-				ventanaTrabajador.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				ventanaTrabajador = new JFrame("Ventana Trabajador");
+				ventanaTrabajador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				ventanaTrabajador.setLocationRelativeTo(null);
 				ventanaTrabajador.setSize(800, 600);
-				ventanaTrabajador.setVisible(true);
 			}
 		});
 		panelBotones.add(botonTrabajador);
@@ -49,17 +53,17 @@ public class Main extends JFrame {
 		//ActionListener para abrir ventana de visitante
 		botonTrabajador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaVisitante ventanaVisitante = new VentanaVisitante();
-				ventanaVisitante.setVisible(false);
-				ventanaVisitante.setTitle("Bienvenido a ZooYarzabal");
-				ventanaVisitante.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				ventanaVisitante = new JFrame("Ventana Visitante");
+				ventanaVisitante.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				ventanaVisitante.setLocationRelativeTo(null);
 				ventanaVisitante.setSize(800, 600);
-				ventanaVisitante.setVisible(true);
+
 			}
 		});
 		panelBotones.add(botonVisitante);
 		
 		add(panelBotones, BorderLayout.SOUTH);
 	}
+
 
 }

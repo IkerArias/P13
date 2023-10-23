@@ -2,15 +2,15 @@ package Zoo;
 
 public class Animal {
 	
-	protected String nombre;
-	protected int ID;
+	protected String nombre, descripcion;
+	protected int ID, edad;
 	protected Genero genero;
-	protected int edad;
 	protected Trabajador cuidador;
-	protected String descripcion;
+	protected boolean isPadre, isEnfermo;;
+
 	
 	//Constructores
-	public Animal(String nombre, int iD, Genero genero, int edad, Trabajador cuidador, String descripcion) {
+	public Animal(String nombre, int iD, Genero genero, int edad, Trabajador cuidador, String descripcion, boolean isPadre, boolean isEnfermo) {
 		super();
 		this.nombre = nombre;
 		ID = iD;
@@ -18,6 +18,8 @@ public class Animal {
 		this.edad = edad;
 		this.cuidador = cuidador;
 		this.descripcion = descripcion;
+		this.isPadre = isPadre;
+		this.isEnfermo = isEnfermo;
 	}
 
 	public Animal() {
@@ -28,9 +30,19 @@ public class Animal {
 		this.edad = 0;
 		this.cuidador = null;
 		this.descripcion = "";
+		this.isPadre = false;
+		this.isEnfermo = false;
 	}
 	
 	//Getters y Setters
+
+	public boolean isEnfermo() {
+		return isEnfermo;
+	}
+
+	public void setEnfermo(boolean isEnfermo) {
+		this.isEnfermo = isEnfermo;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -78,6 +90,22 @@ public class Animal {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public boolean isPadre() {
+		return isPadre;
+	}
+
+	public void setPadre(boolean isPadre) {
+		this.isPadre = isPadre;
+	}
+
+	// To String
+	@Override
+	public String toString() {
+		return "Animal [nombre=" + nombre + ", descripcion=" + descripcion + ", ID=" + ID + ", edad=" + edad
+				+ ", genero=" + genero + ", cuidador=" + cuidador + ", isPadre=" + isPadre + ", isEnfermo=" + isEnfermo
+				+ "]";
 	}
 
 	
