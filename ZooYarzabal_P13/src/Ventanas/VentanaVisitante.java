@@ -11,7 +11,7 @@ public class VentanaVisitante extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 
-	public VentanaVisitante(JFrame ventOrigen) {
+	public VentanaVisitante() {
 		
 		JPanel panelBotones = new JPanel();
 		
@@ -26,7 +26,6 @@ public class VentanaVisitante extends JFrame {
 		panelBotones.add(botonMapa);
 		
 		add(panelBotones, BorderLayout.SOUTH);
-		
+	}
 		
 	}
-}

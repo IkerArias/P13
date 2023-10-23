@@ -14,30 +14,34 @@ import javax.swing.JPasswordField;
 
 public class VentanaTrabajador extends JFrame {
 	
-	private JFrame ventanaVet;
-	
 	// static
 	private static final long serialVersionUID = 1L;
 	
 	// Componentes de la ventana
 	JComboBox<String> comboOficios;
 
-	public VentanaTrabajador(JFrame ventOrigen) {
+	public VentanaTrabajador() {
+		
+		
 		setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		setSize( 800, 600 );
 		setLocationRelativeTo( null );
 		
+		
 		JPanel panelComboBox = new JPanel();
 		
+		comboOficios.addItem("Limpieza");
+		comboOficios.addItem("Cuidador");
 		comboOficios.addItem("Veterinario");
-		comboOficios.addItem("Guía");
+		comboOficios.addItem("Guia");
+		comboOficios.addItem("Mantenimiento");
 		comboOficios.addItem("Administrador");
 		comboOficios.addItem("Diseñador");
 		comboOficios.addItem("Taquillero");
+		comboOficios.addItem("Guardia");
 		
 		comboOficios.setSelectedIndex(0);
-		panelComboBox.add(comboOficios);
-		add(panelComboBox, BorderLayout.CENTER);
+	
 		
 		comboOficios.addItemListener(new ItemListener() {
 			
@@ -45,7 +49,7 @@ public class VentanaTrabajador extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				// TODO Auto-generated method stub
 				if (comboOficios.getSelectedItem().equals("Veterinario")) {
-					ventanaVet = new VentanaVeterinario();
+					VentanaVeterinario ventanaVet = new VentanaVeterinario();
 					ventanaVet.setVisible(true);
 				}else {
 					return;
@@ -53,37 +57,30 @@ public class VentanaTrabajador extends JFrame {
 			}
 		});
 		
-	}
-	
-	public static void main(String[] args) {
-		String contrasenya = pedirContrasenya();
+		panelComboBox.add(comboOficios);
+		add(panelComboBox, BorderLayout.CENTER);
 		
-		if(verificarContrasenya(contrasenya)) {
-			JOptionPane.showMessageDialog(null, "Contraseña correcta");
-			JFrame ventanaTrabajador = new JFrame();
-			ventanaTrabajador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			ventanaTrabajador.setLocationRelativeTo(null);
-			ventanaTrabajador.setSize(800, 400);
-			ventanaTrabajador.setVisible(true);
-		}else {
-			JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
 		}
-	}
+		
+	
+	
+	/* protected boolean verificarContrasenya(String contrasenya) {
+			return contrasenya.equals("AGOTE");
+		}
 
-	private static String pedirContrasenya() {
-		JPasswordField passwordField = new JPasswordField();
-		Object [] mensaje = {"Ingrese la contraseña: ", passwordField};
-		
-		int aukera = JOptionPane.showConfirmDialog(null, mensaje, "Ingresa la contraseña", JOptionPane.OK_CANCEL_OPTION);
-		if(aukera == JOptionPane.OK_OPTION) {
-			return new String(passwordField.getPassword());
-		}else {
+	protected String pedirContrasenya() {
+			// TODO Auto-generated method stub
+			JPasswordField passwordField = new JPasswordField();
+			Object [] mensaje = {"Ingrese la contraseña: ", passwordField};
+			
+			int aukera = JOptionPane.showConfirmDialog(null, mensaje, "Ingresa la contraseña", JOptionPane.OK_CANCEL_OPTION);
+			if(aukera == JOptionPane.OK_OPTION) {
+				return new String(passwordField.getPassword());
+			}else {
 			return null;
-		}
-	}
+		
+		
+	} 
 	
-	private static boolean verificarContrasenya(String contrasenya) {
-		return contrasenya.equals("AGOTE");
-	}
-	
+	} */
 }
