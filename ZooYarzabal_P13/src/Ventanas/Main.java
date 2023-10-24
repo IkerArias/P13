@@ -1,57 +1,68 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-public class Main extends JFrame {
+public class Main {
+	
+	private JFrame ventana;
+	
+	public Main() {
+		
+		// Crear una ventana principal
+        ventana = new JFrame("Ventana Principal");
+        ventana.setSize(800, 600);
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setLayout(new FlowLayout());
+        
+        
+        //Panel para los botones
+        JPanel pnlBotones = new JPanel();
 
-	private static final long serialVersionUID = 1L;
+        // Botones para seleccionar si eres trabajador o visitante
+        JButton btnTrabajador = new JButton("Soy Trabajador");
+        // ActionListener para el botón de trabajador
+        btnTrabajador.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana.dispose(); // Cerrar la ventana principal
+                new VentanaTrabajador(); // Abrir la ventana de trabajadores
+            }
+        });
+        pnlBotones.add(btnTrabajador);
+        
+        JButton btnVisitante = new JButton("Soy Visitante");
+        // ActionListener para el botón de visitante
+        btnVisitante.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana.dispose(); // Cerrar la ventana principal
+                new VentanaVisitante(); // Abrir la ventana de visitantes
+            }
+        });
+        pnlBotones.add(btnVisitante);
 
-	public static void main(String[] args) {
-		// Propiedades principales de la ventana principal
-		Main ventanaPrincipal = new Main();
-		ventanaPrincipal.setVisible(true);
-		ventanaPrincipal.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		ventanaPrincipal.setSize(800, 600);
-		ventanaPrincipal.setTitle("ZooYarzabal");
-
+        // Agregar botones a la ventana principal
+        ventana.add(pnlBotones, BorderLayout.SOUTH);
+        
+        ventana.setVisible(true);
+		
 	}
 	
-	// Aquí ya empezamos a construir
-	public Main() {
-		JPanel panelImagen = new JPanel();
-		panelImagen.setBackground(Color.BLUE); // Hasta que pongamos la imagen lo dejamos así
-		add(panelImagen, BorderLayout.CENTER);
-		
-		JPanel panelBotones = new JPanel();
-		panelBotones.setLayout(new FlowLayout());
-		// Aquí creamos el botón de trabajador y usuario
-		JButton botonTrabajador = new JButton("Soy trabajador");
-		
-		//ActionListener para abrir ventana de trabajador
-		botonTrabajador.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		panelBotones.add(botonTrabajador);
-		
-		
-		JButton botonVisitante = new JButton("Soy visitante");
-		//ActionListener para abrir ventana de visitante
-		botonTrabajador.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		panelBotones.add(botonVisitante);
-		
-		add(panelBotones, BorderLayout.SOUTH);
-	}
+	 public static void main(String[] args) {
+	        SwingUtilities.invokeLater(new Runnable() {
+	            @Override
+	            public void run() {
+	                new Main();
+	            }
+	        });
 
+	
+}
 }
