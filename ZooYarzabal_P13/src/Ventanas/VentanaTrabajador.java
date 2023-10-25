@@ -73,7 +73,7 @@ public class VentanaTrabajador {
     
     
     
- // Agregar ActionListener al botón de inicio de sesión
+    // Agregar ActionListener al botón de inicio de sesión
     btnIniciarSesion.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -81,120 +81,65 @@ public class VentanaTrabajador {
             char[] contrasena = contrasenaPasswordField.getPassword();
             String tipoTrabajador = (String) tipoTrabajadorComboBox.getSelectedItem();
 
-            // Verificar usuario y contraseña
-            if (usuario.equals("Iker") && new String(contrasena).equals("Arias")) {
+            if (verificarCredenciales(usuario, new String(contrasena))) {
                 JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso como " + tipoTrabajador);
-                //Abrir ventana correspondiente
-             // Abrir la ventana correspondiente al tipo de trabajador
-                if (tipoTrabajador.equals("Limpieza")) {
-                    
-                    AbrirVentanaLimpieza();
-                } else if (tipoTrabajador.equals("Mantenimiento")) {
-                   
-                    AbrirVentanaMantenimiento();
-                } else if (tipoTrabajador.equals("Cuidador")) {
-                    
-                    AbrirVentanaCuidador();
-                } else if (tipoTrabajador.equals("Veterianrio")) {
-                    
-                    AbrirVentanaveterinario();
-                } else if (tipoTrabajador.equals("Guia")) {
-                    
-                    AbrirVentanaGuia();
-                } else if (tipoTrabajador.equals("Administrador")) {
-                    
-                    AbrirVentanaAdminidtrador();
-                } else if (tipoTrabajador.equals("Diseñador de Eventos")) {
-                    
-                    AbrirVentanaDiseñador();
-                } else if (tipoTrabajador.equals("Taquillero")) {
-                    
-                    AbrirVentanaTaquillero();
-                } else if (tipoTrabajador.equals("Guardia de Seguirdad")) {
-                    
-                    AbrirVentanaSeguridad();
-                }
-                
-                
-                
+                abrirVentana(tipoTrabajador);
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
             }
-            
-            // Limpia el campo de contraseña después de cada intento
+
             contrasenaPasswordField.setText("");
-        	}
 
-		private void AbrirVentanaSeguridad() {
-			// TODO Auto-generated method stub
-			VentanaSeguridad ventSeguridad = new VentanaSeguridad();
-			ventSeguridad.setVisible(true);
-			
 		}
-
-		private void AbrirVentanaTaquillero() {
-			// TODO Auto-generated method stub
-			VentanaTaquillero ventTaquillero = new VentanaTaquillero();
-			ventTaquillero.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaDiseñador() {
-			// TODO Auto-generated method stub
-			VentanaDiseñador ventDiseñador = new VentanaDiseñador();
-			ventDiseñador.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaAdminidtrador() {
-			// TODO Auto-generated method stub
-			VentanaAdministrador ventAdmin = new VentanaAdministrador();
-			ventAdmin.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaGuia() {
-			// TODO Auto-generated method stub
-			VentanaGuia ventGuia = new VentanaGuia();
-			ventGuia.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaveterinario() {
-			// TODO Auto-generated method stub
-			VentanaVeterinario ventVeterinario = new VentanaVeterinario();
-			ventVeterinario.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaCuidador() {
-			// TODO Auto-generated method stub
-			VentanaCuidador ventCuidador = new VentanaCuidador();
-			ventCuidador.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaMantenimiento() {
-			// TODO Auto-generated method stub
-			VentanaMantenimiento ventManten = new VentanaMantenimiento();
-			ventManten.setVisible(true);
-			
-		}
-
-		private void AbrirVentanaLimpieza() {
-			// TODO Auto-generated method stub
-			VentanaLimpieza ventLimpieza = new VentanaLimpieza();
-			ventLimpieza.setVisible(true);
-			
-		}
-    	});
-    
- // 		Mostrar la ventana
+    });
+    		//Mostrar la ventana
     		ventana.setVisible(true);
     
     }
     
-	    public static void main(String[] args) {
+	    protected void abrirVentana(String tipoTrabajador) {
+		// TODO Auto-generated method stub
+	    	
+	    	ventana.dispose();
+	        switch (tipoTrabajador) {
+	            case "Limpieza":
+	                new VentanaLimpieza();
+	                break;
+	            case "Mantenimiento":
+	                new VentanaMantenimiento();
+	                break;
+	            case "Cuidador":
+	                new VentanaCuidador();
+	                break;
+	            case "Veterinario":
+	                new VentanaVeterinario();
+	                break;
+	            case "Guía":
+	                new VentanaGuia();
+	                break;
+	            case "Administrador":
+	                new VentanaAdministrador();
+	                break;
+	            case "Diseñador de Eventos":
+	                new VentanaDiseñadorEventos();
+	                break;
+	            case "Taquillero":
+	                new VentanaTaquillero();
+	                break;
+	            case "Guardia de Seguridad":
+	                new VentanaSeguridad();
+	                break;
+	            default:
+	        }
+		
+	}
+
+		protected boolean verificarCredenciales(String usuario, String contrasena) {
+		// TODO Auto-generated method stub
+			return usuario.equals("Iker") && contrasena.equals("Arias");
+	}
+
+		public static void main(String[] args) {
 	        SwingUtilities.invokeLater(new Runnable() {
 	            @Override
 	            public void run() {
