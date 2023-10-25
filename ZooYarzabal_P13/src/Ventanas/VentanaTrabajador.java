@@ -99,8 +99,7 @@ public class VentanaTrabajador {
     
 	    protected void abrirVentana(String tipoTrabajador) {
 		// TODO Auto-generated method stub
-	    	
-	    	ventana.dispose();
+	    
 	        switch (tipoTrabajador) {
 	            case "Limpieza":
 	                new VentanaLimpieza();
