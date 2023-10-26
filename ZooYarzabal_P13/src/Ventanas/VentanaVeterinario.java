@@ -9,9 +9,7 @@ import java.util.Random;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import Zoo.Animal;
-import Zoo.AsignacionVet_Ani;
-import Zoo.Trabajador;
+import Zoo.*;
 
 public class VentanaVeterinario extends JFrame {
 
