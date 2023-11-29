@@ -32,7 +32,7 @@ public class VentanaTrabajador {
     	
     // Crear una ventana 
     ventana = new JFrame("Acceso de Trabajadores");
-    ventana.setSize(800, 600);
+    ventana.setSize(800, 125);
     ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     ventana.setLayout(new FlowLayout());
     

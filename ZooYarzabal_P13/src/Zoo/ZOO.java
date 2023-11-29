@@ -13,7 +13,7 @@ protected ArrayList<Visistante> visitantes;
 
 public ArrayList<Animal> getAnimales() {
 
-return animales;
+	return animales;
 
 }
 
@@ -25,51 +25,64 @@ this.animales = animales;
 
 public ArrayList<Trabajador> getTrabajadores() {
 
-return trabajadores;
+	return trabajadores;
 
 }
 
 public void setTrabajadores(ArrayList<Trabajador> trabajadores) {
 
-this.trabajadores = trabajadores;
+	this.trabajadores = trabajadores;
 
 }
 
 public ArrayList<Visistante> getVisitantes() {
 
-return visitantes;
+	return visitantes;
 
 }
 
 public void setVisitantes(ArrayList<Visistante> visitantes) {
 
-this.visitantes = visitantes;
+	this.visitantes = visitantes;
 
 }
 
 public ZOO(ArrayList<Animal> animales, ArrayList<Trabajador> trabajadores, ArrayList<Visistante> visitantes) {
 
-super();
+	super();
 
-this.animales = animales;
+	this.animales = animales;
 
-this.trabajadores = trabajadores;
+	this.trabajadores = trabajadores;
 
-this.visitantes = visitantes;
+	this.visitantes = visitantes;
 
 }
 
 public ZOO() {
 
-super();
+	super();
 
-this.animales = new ArrayList<>();
+	this.animales = new ArrayList<>();
 
-this.trabajadores = new ArrayList<>();
+	this.trabajadores = new ArrayList<>();
 
-this.visitantes = new ArrayList<>();
+	this.visitantes = new ArrayList<>();
 
 }
 
+public void anyadirObjectos() {
+	// Dos animales
+	animales.add(new Animal("Gorila", 3, Genero.FEMENINO, 3, new Trabajador(), "akdfjkasj", false, true));
+	animales.add(new Animal("Flamenco", 23, Genero.MASCULINO, 3, new Trabajador(), "akdfjkasj", true, true));
+	
+	// Dos trabajadores
+	trabajadores.add(new Trabajador(32, "Jon Brown", "Atela", 2, 39, Puesto.VETERINARIO, 233838, "jon@gmail.com"));
+	trabajadores.add(new Trabajador(2, "fdsjkldkjñl", "dkjlfkj", 36, 2, Puesto.ADMINISTRADOR, 3, "jfkdjf"));
+	
+	// Dos visitantes
+	visitantes.add(new Visistante("dk", 2, 3, 3, "akdjfs"));
+	visitantes.add(new Visistante("djdfjkf", 2, 33, 22, "kadjf"));
+}
 
 }

@@ -67,14 +67,23 @@ public class Visistante {
 		this.correo = correo;
 	}
 	
-	//Metodo toString
+	// Método toString
 	@Override
 	public String toString() {
 		return "Visistante [nombre=" + nombre + ", DNI=" + DNI + ", edad=" + edad + ", nVisitas=" + nVisitas
 				+ ", correo=" + correo + "]";
 	}
 	
-	
-	
+	// Otros métodos
+	public int obtenerDscuento() {
+		int edad = this.getEdad();
+		if(edad < 7 || edad > 70) {
+			return 1;
+		}else if(edad > 7 && edad < 12) {
+			return (int) 0.2;
+		}else {
+			return 0;
+		}
+	}
 
 }
