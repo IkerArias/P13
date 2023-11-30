@@ -8,7 +8,7 @@ class claseTests {
 
 	@Test
 	void test() {
-		fail("");
+		fail("a");
 	}
 
 }
