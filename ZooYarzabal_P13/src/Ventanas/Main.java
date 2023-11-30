@@ -16,7 +16,7 @@ public class Main {
 	public Main() {
 		
 		// Crear una ventana principall
-        ventana = new JFrame("Ventana Principal");
+        ventana = new JFrame("Ventana Principal";
         ventana.setSize(800, 600);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLayout(new FlowLayout());
