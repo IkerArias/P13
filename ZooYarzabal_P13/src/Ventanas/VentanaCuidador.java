@@ -1,6 +1,13 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
+
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,18 +17,33 @@ import javax.swing.*;
 import Zoo.*;
 
 public class VentanaCuidador extends JFrame{
+	protected JFrame vActual, vAnterior;
+	protected JButton btnVolver;
+	protected JPanel pSur;
 	
 	private JList<String> listaDeAnimales;
     private JTextArea informacionAnimal;
     private JButton botonModificar;
     private ArrayList<Animal> animalesDelZoo;
 	
-	public VentanaCuidador() {
-		
+	public VentanaCuidador(JFrame va) {
+		super();
+		vActual = this;
+		vAnterior = va;
 		setTitle("Ventana del Cuidador");
-        setSize(400, 300);
+		setBounds(500, 300, 700, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+
+        btnVolver = new JButton("VOLVER");
+        btnVolver.addActionListener((e)->{
+        	vAnterior.setVisible(true);
+        	vActual.dispose();
+        });
+        pSur = new JPanel();
+        getContentPane().add(pSur, BorderLayout.SOUTH);
+        pSur.add(btnVolver);
+
         animalesDelZoo = new ArrayList<>();
         // Llenar la lista de animales
 
@@ -74,7 +96,7 @@ public class VentanaCuidador extends JFrame{
 		
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -82,6 +104,6 @@ public class VentanaCuidador extends JFrame{
             }
         });
 
-}
+}*/
 
 }

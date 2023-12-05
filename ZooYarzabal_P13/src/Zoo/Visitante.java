@@ -1,29 +1,40 @@
 package Zoo;
 
-public class Visistante {
+public class Visitante {
 	//Declaracion de atributos
 	protected String nombre;
-	protected int DNI;
+	protected String DNI;
 	protected int edad;
 	protected int nVisitas;
 	protected String correo;
+	protected String contrasenia;
 	
 	//Constructores con y sin argumentos
-	public Visistante(String nombre, int dNI, int edad, int nVisitas, String correo) {
+	public Visitante(String nombre, String dNI, int edad, int nVisitas, String correo, String contrasenia) {
 		super();
 		this.nombre = nombre;
 		DNI = dNI;
 		this.edad = edad;
 		this.nVisitas = nVisitas;
 		this.correo = correo;
+		this.contrasenia = contrasenia;
 	}
 	
-	public Visistante() {
+	public Visitante() {
 		this.nombre = "";
-		DNI = 0;
+		DNI = "";
 		this.edad = 0;
 		this.nVisitas = 0;
 		this.correo = "";
+		this.contrasenia = "";
+	}
+	
+
+	public Visitante(String nombre, String dNI, String contrasenia) {
+		super();
+		this.nombre = nombre;
+		DNI = dNI;
+		this.contrasenia = contrasenia;
 	}
 
 	//Getters y Setters
@@ -35,12 +46,12 @@ public class Visistante {
 		this.nombre = nombre;
 	}
 
-	public int getDNI() {
+	public String getDNI() {
 		return DNI;
 	}
 
-	public void setDNI(int dNI) {
-		DNI = dNI;
+	public void setDNI(String dNI) {
+		this.DNI = dNI;
 	}
 
 	public int getEdad() {
@@ -66,13 +77,25 @@ public class Visistante {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 	
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+
 	// Método toString
 	@Override
 	public String toString() {
 		return "Visistante [nombre=" + nombre + ", DNI=" + DNI + ", edad=" + edad + ", nVisitas=" + nVisitas
-				+ ", correo=" + correo + "]";
+				+ ", correo=" + correo + ", contrasenia=" + contrasenia + "]";
 	}
+
+	
 	
 	// Otros métodos
 	public int obtenerDscuento() {

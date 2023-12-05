@@ -1,31 +1,49 @@
 package Ventanas;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+
+import javax.swing.JPanel;
+
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 public class VentanaAdministrador extends JFrame{
-	
+	protected JFrame vActual, vAnterior;
+	protected JButton btnVolver;
+	protected JPanel pSur;
 	// Lista de trabajadores
     private JList<String> listaTrabajadores;
 
     // Área para mostrar datos del trabajador
     private JTextArea datosTrabajador;
 	
-	public VentanaAdministrador() {
-		
+	public VentanaAdministrador(JFrame va) {
+		super();
+		vActual = this;
+		vAnterior = va;
 		setTitle("Ventana del Administrador");
-        setSize(400, 300);
+        setBounds(500, 300, 700, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        btnVolver = new JButton("VOLVER");
+        btnVolver.addActionListener((e)->{
+        	vAnterior.setVisible(true);
+        	vActual.dispose();
+        });
+        pSur = new JPanel();
+        getContentPane().add(pSur, BorderLayout.SOUTH);
+        pSur.add(btnVolver);
         
         
         // Crear la lista de trabajadores
@@ -91,7 +109,7 @@ public class VentanaAdministrador extends JFrame{
         setVisible(true);
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -99,6 +117,6 @@ public class VentanaAdministrador extends JFrame{
             }
         });
 
-}
+}*/
 
 }

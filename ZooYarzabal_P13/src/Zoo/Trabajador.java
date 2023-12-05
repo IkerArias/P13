@@ -2,17 +2,23 @@ package Zoo;
 
 public class Trabajador {
 	//Declaracion de atributos
-	protected int DNI;
+	protected String DNI;
 	protected String nombre;
 	protected String apellido;
 	protected int horasDeTrabajo;
-	protected Puesto puesto;
+	protected String puesto;
 	protected int nTlf;
 	protected String correo;
+	protected String con;
 	
-	//Constructores con y sin argumentos
-	public Trabajador(int dNI, String nombre, String apellido, int sueldoPorHora, int horasDeTrabajo, Puesto puesto,
-			int nTlf, String correo) {
+	
+	public Trabajador() {
+		super();
+	}
+
+
+	public Trabajador(String dNI, String nombre, String apellido, int horasDeTrabajo, String puesto, int nTlf,
+			String correo, String con) {
 		super();
 		DNI = dNI;
 		this.nombre = nombre;
@@ -21,86 +27,109 @@ public class Trabajador {
 		this.puesto = puesto;
 		this.nTlf = nTlf;
 		this.correo = correo;
+		this.con = con;
 	}
-	
-	public Trabajador() {
-		
-		DNI = 0;
-		this.nombre = "";
-		this.apellido = "";
-		this.horasDeTrabajo = 0;
-		this.puesto = null;
-		this.nTlf = 0;
-		this.correo = "";
-	}
-	
-	//Getters y Setters 
 
-	public int getDNI() {
+
+	public Trabajador(String p_tra, String nombre, String DNI, String con) {
+		super();
+		this.puesto = p_tra;
+		this.nombre = nombre;
+		this.DNI = DNI;
+		this.con = con;
+	}
+
+
+	public Trabajador(String dNI, String nombre, String con) {
+		super();
+		DNI = dNI;
+		this.nombre = nombre;
+		this.con = con;
+	}
+
+
+	public String getDNI() {
 		return DNI;
 	}
 
-	public void setDNI(int dNI) {
+
+	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApellido() {
 		return apellido;
 	}
 
+
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
 
 	public int getHorasDeTrabajo() {
 		return horasDeTrabajo;
 	}
 
+
 	public void setHorasDeTrabajo(int horasDeTrabajo) {
 		this.horasDeTrabajo = horasDeTrabajo;
 	}
 
-	public Puesto getPuesto() {
+
+	public String getPuesto() {
 		return puesto;
 	}
 
-	public void setPuesto(Puesto puesto) {
+
+	public void setPuesto(String puesto) {
 		this.puesto = puesto;
 	}
+
 
 	public int getnTlf() {
 		return nTlf;
 	}
 
+
 	public void setnTlf(int nTlf) {
 		this.nTlf = nTlf;
 	}
+
 
 	public String getCorreo() {
 		return correo;
 	}
 
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
-	//Metodo toString
 
-	@Override
-	public String toString() {
-		return "Trabajador [DNI=" + DNI + ", nombre=" + nombre + ", apellido=" + apellido + ", puesto=" + puesto + ", nTlf=" + nTlf
-				+ ", correo=" + correo + "]";
+
+	public String getCon() {
+		return con;
 	}
+
+
+	public void setCon(String con) {
+		this.con = con;
+	}
+
 	
-	public int CalcularSueldo() {
+	/*
+	 * public int CalcularSueldo() {
 		
 		int sueldoPorHora;
 		
@@ -120,11 +149,7 @@ public class Trabajador {
 		return sueldoPorHora * horasDeTrabajo;
 		
 	}
+	 */
 	
-	
-	
-	
-	
-	
-
 }
+
