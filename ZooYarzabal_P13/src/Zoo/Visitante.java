@@ -1,6 +1,31 @@
 package Zoo;
 
+import java.util.Objects;
+
 public class Visitante {
+	
+	// Métodos hashCode e equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(DNI, contrasenia, correo, edad, nVisitas, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Visitante other = (Visitante) obj;
+		return Objects.equals(DNI, other.DNI) && Objects.equals(contrasenia, other.contrasenia)
+				&& Objects.equals(correo, other.correo) && edad == other.edad && nVisitas == other.nVisitas
+				&& Objects.equals(nombre, other.nombre);
+	}
+
+
+
 	//Declaracion de atributos
 	protected String nombre;
 	protected String DNI;
