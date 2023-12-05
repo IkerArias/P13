@@ -28,7 +28,7 @@ class VisitantesTest {
 	}
 	
 	@Test
-	// Aquí veremos si la persona Juan Pérez con DNI 123456789 acudió al zoo este día
+	// Aquí veremos si la persona Juan Pérez con DNI 123456789 acudió al zoo este día o no
 	public void testVisitante1() {
 		Visitante visitante1 = visitantes.get(0);
 		assertEquals( "Juan Perez", visitante1.getNombre() );
