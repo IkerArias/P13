@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import Zoo.Trabajador;
 import Zoo.Visitante;
+import Zoo.Visitante;
 
 public class Zoo {
 	private static List<Visitante> visitantes = new ArrayList<>();

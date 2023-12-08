@@ -9,15 +9,16 @@ import org.junit.jupiter.api.Test;
 
 import Ventanas.VentanaPrincipal;
 import Zoo.Visitante;
+import Zoo.ZOO;
 
 class VisitantesTest {
 
-	private VentanaPrincipal main;
-	private ArrayList<Visitante> visitantes;
+	private ZOO main;
+	private ArrayList<Visitante> visitantes = new ArrayList<>();
 	
 	@BeforeEach
 	public void setUp() {
-		main = new VentanaPrincipal();
+		main = new ZOO();
 		visitantes = main.getVisitantes();
 	}
 	
