@@ -3,8 +3,10 @@ package Ventanas;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.*;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,11 +31,26 @@ public class VentanaPrincipal {
         JLabel lblTitulo = new JLabel("ZOOYARZABAL");
         //Panel para los botones
         JPanel pnlBotones = new JPanel();
+        // Panel imagen
+        JPanel pnlImagen = new JPanel();
         JPanel pnlNorte = new JPanel();
         
         pnlNorte.add(lblTitulo);
         ventana.add(pnlNorte, BorderLayout.NORTH);
-
+        
+        /*
+         * Apartado donde colocaremos la imagen del zoo, por ahora una provisonal en el centro
+         * de la ventana que se abrirá al ejecutar el programa
+         */
+        
+        ImageIcon icono = new ImageIcon("C:/Users/unaio/OneDrive/Imágenes/1197626.jpg"); // Después cambiaremos la ruta de acceso de la imagen cuando demos con la imagen final deseada
+        Image imagen = icono.getImage();
+        Image nuevaImagen = imagen.getScaledInstance(800, 600, Image.SCALE_SMOOTH);
+        ImageIcon nuevoIcono = new ImageIcon(nuevaImagen);
+        JLabel labelImagen = new JLabel(nuevoIcono);
+        pnlImagen.add(labelImagen);
+        ventana.add(pnlImagen, BorderLayout.CENTER);
+        
         // Botones para seleccionar si eres trabajador o visitante
         JButton btnTrabajador = new JButton("Soy Trabajador");
         // ActionListener para el botón de trabajador
