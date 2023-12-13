@@ -123,12 +123,12 @@ public class Zoo {
 		try {
 			PrintWriter pw = new PrintWriter(nomfich);
 			for(Trabajador t: trabajadores) {
-				pw.println(t.getDNI()+";"+t.getNombre()+";"+t.getCon());
+				pw.println(t.getDNI()+" ; "+t.getNombre()+";"+t.getCon());
 			}
 			pw.flush();
 			pw.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch block //
 			e.printStackTrace();
 		}
 	}
